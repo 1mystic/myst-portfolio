@@ -15,7 +15,7 @@ setTimeout(() => {
         }, 500);
     }
     
-}, 1000);
+}, 200);
 
 // Enhanced audio autoplay with multiple strategies
 document.addEventListener('DOMContentLoaded', function() {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             heroTitle.style.transition = 'all 0.8s ease';
             heroTitle.style.opacity = '1';
             heroTitle.style.transform = 'translateY(0)';
-        }, 200);
+        }, 300);
     }
     
     if (heroDescription) {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             heroDescription.style.transition = 'all 0.8s ease';
             heroDescription.style.opacity = '1';
             heroDescription.style.transform = 'translateY(0)';
-        }, 400);
+        }, 500);
     }
     
     if (heroButtons) {
@@ -92,13 +92,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 800);
     }
 
-    // Initialize typing effect
-    if (heroDescription) {
-        const originalText = heroDescription.textContent;
-        setTimeout(() => {
-            typeWriter(heroDescription, originalText, 50);
-        }, 1000);
-    }
+
+    // Typing effect for all CGPA elements - initialize when user scrolls to each element
+    const cgpaElements = document.querySelectorAll('.cgpa');
+    cgpaElements.forEach(cgpaEl => {
+        const originalText = cgpaEl.textContent;
+        cgpaEl.textContent = ''; // Clear initially
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typeWriter(cgpaEl, originalText, 210); // Faster animation
+                    obs.unobserve(cgpaEl); // Only run once per element
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(cgpaEl);
+    });
 
     // Skills animation in data visualization
     const bars = document.querySelectorAll('.bar');
@@ -804,3 +815,48 @@ function debounce(func, wait, immediate) {
 // Apply debouncing to scroll events
 window.addEventListener('scroll', debounce(changeActiveNav, 10));
 window.addEventListener('scroll', debounce(revealOnScroll, 10));
+
+// counter animation numbers
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+
+  const options = {
+    threshold: 0.5 // Trigger when 50% visible
+  };
+
+  const animateCounter = (el) => {
+    const target = +el.getAttribute("data-target");
+    const duration = 150; // total animation duration in ms
+    const stepTime = 1;
+    const steps = Math.ceil(duration / stepTime);
+    let count = 0;
+    const increment = target / steps;
+
+    const updateCount = () => {
+      count += increment;
+      if (count < target) {
+        el.textContent = Math.floor(count);
+        requestAnimationFrame(updateCount);
+      } else {
+        el.textContent = target;
+      }
+    };
+
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add("visible");
+        animateCounter(el);
+        obs.unobserve(el); // Run only once
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+});
