@@ -2760,6 +2760,21 @@ p {
   }
  
 }
+
+@media (max-width: 480px) {
+  .profile-card {
+    max-width: 300px;
+    max-height: 260px;
+    padding: 0.5rem;
+  }
+  .tech-stack-mini {
+    max-height: 100px;
+  }
+  .social-link{
+    max-height: 40px;
+  }
+}
+
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
   * {
