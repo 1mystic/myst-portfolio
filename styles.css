@@ -1390,9 +1390,9 @@ p {
 }
 
 .card-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: var(--space-md);
-  color: var(--color-highlight-green);
+  color: rgba(142, 226, 57, 0.9);
   font-family: var(--font-display);
 }
 
