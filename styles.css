@@ -2729,6 +2729,13 @@ p {
 }
 
 @media (max-width: 480px) {
+  .hero {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    padding : 1rem;
+    padding-top: 126px;
+  }
   .hero-content {
     position: relative;   
     margin: 1rem; 
