@@ -2731,7 +2731,9 @@ p {
 @media (max-width: 480px) {
   .hero-content {
     position: relative;   
-    margin-left: 0; 
+    margin: 1rem; 
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
   .profile-card {
