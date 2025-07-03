@@ -2729,17 +2729,24 @@ p {
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    position: relative;   
+    margin-left: 0; 
+    text-align: center;
+  }
   .profile-card {
-    max-width: 300px;
-    max-height: 260px;
+    max-width: 310px;
+    max-height: 360px;
     padding: 0.5rem;
   }
-  .tech-stack-mini {
-    max-height: 100px;
+  .profile-right{
+    min-height: 150px;
   }
+  
   .social-link{
     max-height: 40px;
   }
+  
 }
 
 /* Performance optimizations */
