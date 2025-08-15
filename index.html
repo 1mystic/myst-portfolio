@@ -205,7 +205,7 @@
                 <li><a href="#experience" class="nav-link ">EXPERIENCE</a></li>
                 <li><a href="#projects" class="nav-link strip-text">PROJECTS</a></li>
                 <li><a href="#education" class="nav-link ">EDUCATION</a></li>
-                <li><a href="#contact" class="nav-link strip-text">CONTACT</a></li>
+                <li><a href="#origami" class="nav-link strip-text">ARTWORK</a></li>
             </ul>
             
         </div>
@@ -573,58 +573,61 @@
 
     <!-- Featured Projects -->
     <section id="featured-projects" class="section">
+        
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="card-image">                  
-                            
-                                <img src="proj-img/clearv.webp" alt="Project Preview">
-                            
-                       
-                    </div>
-                    <div class="card-content">
-                        <h3>Clearview: ML-Verified Pollution Reporting Map</h3>
-                        <p>Crowdsourced platform where users submit geotagged pollution reports, automatically verified by an ML model and displayed on an interactive live map.</p>
-                        <div class="project-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Tensorflow</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Tailwind</span>
-                            <span class="tag">Leaflet API</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="https://clearvieweco.netlify.app/" class="btn-link" target="_blank" rel="noopener">View Project</a>
-                            <a href="https://github.com/1mystic/ClearView" class="btn-link" target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-card">
-                    <div class="card-image">
-                        <img src="proj-img/whiz.webp" alt="Project Preview">
-                    </div>
-                    <div class="card-content">
-                        <h3>Whiz-It: Full-Stack Quizzing Platform</h3>
-                        <p>A scalable, secure quizzing web app featuring real-time notifications, advanced authentication, email integration, and background task processing for seamless learning experiences.</p>
-                        <div class="project-tags">
-                            <span class="tag">Flask</span>
-                            <span class="tag">Vue.Js</span>
-                            <span class="tag">Redis</span>
-                            <span class="tag">Celery</span>
-                            <span class="tag">JWT</span>
-                            <span class="tag">SMTP</span>
-                            <span class="tag">Websockets</span>
+           
+    
+    <div class="featured-slideshow">
+      <div class="featured-slide">
+        <img src="proj-img/clearv.webp" alt="Project 1" />
+        <div class="featured-overlay">
+        <div class="overlay-content">
+          <div class="featured-title">Clearview: Pollution Reporting Map</div>
+          <div class="featured-description">Crowdsourced platform where users submit
+             geotagged pollution reports, automatically verified by an ML model and displayed on an interactive live map.</div>
 
-                        </div>
-                        <div class="card-actions">
-                            <a href="https://youtu.be/TfYUGgWR7j4?si=Wuo9-EpujTJwdGnv" class="btn-link" target="_blank" rel="noopener">View Project</a>
-                            <a href="https://github.com/1mystic/whiz.it" class="btn-link" target="_blank" rel="noopener">GitHub</a>
-                       
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="featured-tags">ML</div>
+          <div class="featured-tags">   Tensorflow</div>
+            <div class="featured-tags">  Python</div>
+              <div class="featured-tags">  React</div>
+                <div class="featured-tags">  Tailwind</div>
+                <div class="featured-tags">  Leaflet API</div>
+          <div class="featured-buttons">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+        </div>  
+      </div>
+
+      <div class="featured-slide">
+        <img src="proj-img/whizit.webp" alt="Project 2" />
+        <div class="featured-overlay">
+        <div class="overlay-content">
+          <div class="featured-title">Whiz-It: Quizzing Platform</div>
+          <div class="featured-description">A scalable, secure quizzing web app featuring real-time notifications, advanced
+             authentication, email integration, and background task processing for seamless learning experiences.</div>
+         
+          <div class="featured-tags">Flask</div>
+          <div class="featured-tags"> Vue</div>
+            <div class="featured-tags">SMTP</div>
+              <div class="featured-tags"> redis</div>
+                <div class="featured-tags"> JWT</div>
+                <div class="featured-tags">RestAPI</div>
+         
+          <div class="featured-buttons">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">View Project</a>
+          </div>
+        </div>  
+        </div>
+      </div>
+
+      
+    </div>
+
+               
         </div>
     </section>
 
@@ -901,6 +904,32 @@
             </div>
         </div>
     </section>
+    <section id="origami" class="section">
+        <div class="container">
+            <h2 class="section-title title-color-2 ">Origami Gallery</h2>
+
+            <div class="gallery-container">
+                <div class="main-image-container">
+                    <img id="mainImage" class="main-image" src="web-origami/#1pegasus.webp" alt="Gallery Image">
+                </div>
+                
+                <div class="image-counter">
+                    <span id="currentIndex">1</span> / <span id="totalImages">58</span>
+                </div>
+                
+                <div class="thumbnail-carousel">
+                    <div class="thumbnail-container" id="thumbnailContainer">
+                        <!-- Thumbnails will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <button class="nav-btn" id="prevBtn">← Previous</button>
+                    <button class="nav-btn" id="nextBtn">Next →</button>
+                </div>
+            </div>
+        </div>
+    </section> 
 
     <!-- My Journey -->
     <section id="journey" class="section journey">
@@ -912,7 +941,7 @@
             <div class="blog-slider__wrapper">
                 <div class="blog-slider__item active">
                     <div class="blog-slider__img">
-                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800&q=80" alt="Dawn - New Beginnings">
+                        <img src="bg_images/sunrise.svg" alt="Dawn - New Beginnings">
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">2023</span>
@@ -924,7 +953,7 @@
                 
                 <div class="blog-slider__item">
                     <div class="blog-slider__img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Web Development">
+                        <img src="bg_images/webd.svg" alt="Web Development">
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">2024</span>
@@ -936,7 +965,7 @@
                 
                 <div class="blog-slider__item">
                     <div class="blog-slider__img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Science and ML">
+                        <img src="bg_images/analys.svg" alt="Data Science and ML">
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">2025</span>
@@ -1019,57 +1048,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>I'm always interested in discussing new opportunities, collaborations, or just chatting about data science and technology.</p>
-                    <div class="contact-methods">
-                        <a href="mailto:atharvkhare18@gmail.com" class="contact-method">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="34" height="34">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                        
-                                <h4>Email</h4>
-                            
-                        </a>
-                        <a href="https://linkedin.com/in/atharvkhare/" class="contact-method" target="_blank" rel="noopener">
-                            <div class="contact-icon">In</div>
-                            <h4>LinkedIn</h4>
-                        </a>
-                        <a href="https://github.com/1mystic" target="_blank" class="contact-method">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="34" height="34">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                                </svg>
-                            </div></svg>
-                            
-                                <h4>GitHub</h4>
-                            
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+       <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">

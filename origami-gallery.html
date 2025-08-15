@@ -1,0 +1,126 @@
+<!-- Simple Origami Gallery with All Images from web-origami -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Origami Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    .gallery-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px #0001;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0002;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px #0003;
+    }
+    @media (max-width: 600px) {
+      .gallery-grid img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <h1>Origami Gallery</h1>
+    <div class="gallery-grid">
+      <img src="web-origami/#1%20beetle%20H.webp" alt="#1 beetle H">
+      <img src="web-origami/#2%20bettle%20H.webp" alt="#2 bettle H">
+      <img src="web-origami/#5%20beetle%20H.webp" alt="#5 beetle H">
+      <img src="web-origami/#6%20beetle%20in%20hanf.webp" alt="#6 beetle in hanf">
+      <img src="web-origami/2%20done.webp" alt="2 done">
+      <img src="web-origami/2-PhotoRoom.webp" alt="2-PhotoRoom">
+      <img src="web-origami/20210420_100944.webp" alt="20210420_100944">
+      <img src="web-origami/20220323_104640.webp" alt="20220323_104640">
+      <img src="web-origami/20220414_095311.webp" alt="20220414_095311">
+      <img src="web-origami/20230128_121931.webp" alt="20230128_121931">
+      <img src="web-origami/20230316_184801.webp" alt="20230316_184801">
+      <img src="web-origami/20230317_114637.webp" alt="20230317_114637">
+      <img src="web-origami/20230317_130343.webp" alt="20230317_130343">
+      <img src="web-origami/20230425_092623.webp" alt="20230425_092623">
+      <img src="web-origami/20230425_180347.webp" alt="20230425_180347">
+      <img src="web-origami/20230427_131158.webp" alt="20230427_131158">
+      <img src="web-origami/20230517_093943.webp" alt="20230517_093943">
+      <img src="web-origami/20230526_175123.webp" alt="20230526_175123">
+      <img src="web-origami/20230526_175151.webp" alt="20230526_175151">
+      <img src="web-origami/20230526_183630.webp" alt="20230526_183630">
+      <img src="web-origami/20230602_102454.webp" alt="20230602_102454">
+      <img src="web-origami/20230602_102517.webp" alt="20230602_102517">
+      <img src="web-origami/20230602_102649.webp" alt="20230602_102649">
+      <img src="web-origami/20230705_103629-PhotoRoom.webp" alt="20230705_103629-PhotoRoom">
+      <img src="web-origami/20230706_092047-PhotoRoom.webp" alt="20230706_092047-PhotoRoom">
+      <img src="web-origami/20230720_173329.webp" alt="20230720_173329">
+      <img src="web-origami/20230720_174054.webp" alt="20230720_174054">
+      <img src="web-origami/20230723_112644-PhotoRoom.webp" alt="20230723_112644-PhotoRoom">
+      <img src="web-origami/20230726_084918-PhotoRoom.webp" alt="20230726_084918-PhotoRoom">
+      <img src="web-origami/20230813_113328bw-PhotoRoom.webp" alt="20230813_113328bw-PhotoRoom">
+      <img src="web-origami/20230813_113605-PhotoRoom.webp" alt="20230813_113605-PhotoRoom">
+      <img src="web-origami/20230908_190209-PhotoRoom.webp" alt="20230908_190209-PhotoRoom">
+      <img src="web-origami/3-PhotoRoom.webp" alt="3-PhotoRoom">
+      <img src="web-origami/Darkness%20Dragon%20main%202.webp" alt="Darkness Dragon main 2">
+      <img src="web-origami/IMG_20220609_090207_593.webp" alt="IMG_20220609_090207_593">
+      <img src="web-origami/IMG-20201223-WA0004.webp" alt="IMG-20201223-WA0004">
+      <img src="web-origami/IMG-20201223-WA0007.webp" alt="IMG-20201223-WA0007">
+      <img src="web-origami/IMG-20201223-WA0009.webp" alt="IMG-20201223-WA0009">
+      <img src="web-origami/IMG-20210525-WA0000.webp" alt="IMG-20210525-WA0000">
+      <img src="web-origami/imgonline-com-ua-ReplaceColor-o1idOtH105d.webp" alt="imgonline-com-ua-ReplaceColor-o1idOtH105d">
+      <img src="web-origami/me.webp" alt="me">
+      <img src="web-origami/msg1521241230-6606.webp" alt="msg1521241230-6606">
+      <img src="web-origami/msg1521241230-6608.webp" alt="msg1521241230-6608">
+      <img src="web-origami/msg1521241230-6611.webp" alt="msg1521241230-6611">
+      <img src="web-origami/msg1521241230-6612.webp" alt="msg1521241230-6612">
+      <img src="web-origami/msg1521241230-6613.webp" alt="msg1521241230-6613">
+      <img src="web-origami/msg1521241230-6614.webp" alt="msg1521241230-6614">
+      <img src="web-origami/peg%202.webp" alt="peg 2">
+      <img src="web-origami/peg3.webp" alt="peg3">
+      <img src="web-origami/pegasus%201%20Redone.webp" alt="pegasus 1 Redone">
+      <img src="web-origami/Polish_20230425_145034667.webp" alt="Polish_20230425_145034667">
+      <img src="web-origami/Polish_20230510_180251220.webp" alt="Polish_20230510_180251220">
+      <img src="web-origami/Polish_20230516_214538855.webp" alt="Polish_20230516_214538855">
+      <img src="web-origami/Polish_20230520_130842102.webp" alt="Polish_20230520_130842102">
+      <img src="web-origami/Polish_20230702_123230551.webp" alt="Polish_20230702_123230551">
+      <img src="web-origami/saber%20t%201.webp" alt="saber t 1">
+      <img src="web-origami/saber%20t%202.webp" alt="saber t 2">
+      <img src="web-origami/saber%20t%203.webp" alt="saber t 3">
+      <img src="web-origami/SUn%20wukong%201.webp" alt="SUn wukong 1">
+      <img src="web-origami/sunwukong%202.webp" alt="sunwukong 2">
+      <img src="web-origami/sunwukong%203.webp" alt="sunwukong 3">
+      <img src="web-origami/V3.webp" alt="V3">
+      <img src="web-origami/wyv2.webp" alt="wyv2">
+      <img src="web-origami/Yoda%20cleaned.webp" alt="Yoda cleaned">
+    </div>
+  </div>
+</body>
+</html>

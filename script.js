@@ -859,4 +859,234 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach(counter => {
     observer.observe(counter);
   });
+
+
 });
+
+
+// origami gallery
+let currentImageIndex = 0;
+let currentStartIndex = 0;
+const visibleThumbnails = 8;
+
+const imageUrls = [
+    'web-origami/#1 beetle H.webp',
+    'web-origami/#2 bettle H.webp',
+    'web-origami/#5 beetle H.webp',
+    'web-origami/#1pegasus.webp',
+    'web-origami/20210420_100944.webp',
+    'web-origami/20220323_104640.webp',
+    'web-origami/20220414_095311.webp',
+    'web-origami/20230128_121931.webp',
+    'web-origami/20230316_184801.webp',
+    'web-origami/20230317_114637.webp',
+    'web-origami/20230317_130343.webp',
+    'web-origami/20230425_092623.webp',
+    'web-origami/20230425_180347.webp',
+    'web-origami/20230427_131158.webp',
+    'web-origami/20230517_093943.webp',
+    'web-origami/20230526_175123.webp',
+    'web-origami/20230526_175151.webp',
+    'web-origami/20230526_183630.webp',
+    'web-origami/20230602_102454.webp',
+    'web-origami/20230602_102517.webp',
+    'web-origami/20230602_102649.webp',
+    'web-origami/20230705_103629-PhotoRoom.webp',
+    'web-origami/20230706_092047-PhotoRoom.webp',
+    'web-origami/20230720_173329.webp',
+    'web-origami/20230720_174054.webp',
+    'web-origami/20230723_112644-PhotoRoom.webp',
+    'web-origami/20230726_084918-PhotoRoom.webp',
+    'web-origami/20230813_113328bw-PhotoRoom.webp',
+    'web-origami/20230813_113605-PhotoRoom.webp',
+    'web-origami/20230908_190209-PhotoRoom.webp',
+    'web-origami/2%20done.webp',
+    'web-origami/2-PhotoRoom.webp',
+    'web-origami/3-PhotoRoom.webp',
+    'web-origami/Darkness%20Dragon%20main%202.webp',
+    'web-origami/IMG_20220609_090207_593.webp',
+    'web-origami/IMG-20201223-WA0004.webp',
+    'web-origami/IMG-20201223-WA0007.webp',
+    'web-origami/IMG-20201223-WA0009.webp',
+    'web-origami/IMG-20210525-WA0000.webp',
+    'web-origami/imgonline-com-ua-ReplaceColor-o1idOtH105d.webp',
+    'web-origami/me.webp',
+    'web-origami/msg1521241230-6606.webp',
+    'web-origami/msg1521241230-6608.webp',
+    'web-origami/msg1521241230-6611.webp',
+    'web-origami/msg1521241230-6612.webp',
+    'web-origami/msg1521241230-6613.webp',
+    'web-origami/msg1521241230-6614.webp',
+    'web-origami/peg%202.webp',
+    'web-origami/peg3.webp',
+    'web-origami/pegasus%201%20Redone.webp',
+    'web-origami/Polish_20230425_145034667.webp',
+    'web-origami/Polish_20230510_180251220.webp',
+    'web-origami/Polish_20230516_214538855.webp',
+    'web-origami/Polish_20230520_130842102.webp',
+    'web-origami/Polish_20230702_123230551.webp',
+    'web-origami/saber%20t%201.webp',
+    'web-origami/saber%20t%202.webp',
+    'web-origami/saber%20t%203.webp',
+    'web-origami/SUn%20wukong%201.webp',
+    'web-origami/sunwukong%202.webp',
+    'web-origami/sunwukong%203.webp',
+    'web-origami/V3.webp',
+    'web-origami/wyv2.webp',
+    'web-origami/Yoda%20cleaned.webp'
+];
+
+const totalImages = imageUrls.length;
+
+// DOM elements
+const mainImage = document.getElementById('mainImage');
+const thumbnailContainer = document.getElementById('thumbnailContainer');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const currentIndexSpan = document.getElementById('currentIndex');
+const totalImagesSpan = document.getElementById('totalImages');
+
+// Initialize gallery
+function initGallery() {
+    if (!mainImage || !thumbnailContainer || !prevBtn || !nextBtn || !currentIndexSpan || !totalImagesSpan) {
+        console.error('Gallery elements not found');
+        return;
+    }
+    
+    totalImagesSpan.textContent = totalImages;
+    createThumbnails();
+    updateMainImage();
+    updateCarousel();
+    updateNavButtons();
+}
+
+// Create thumbnail elements
+function createThumbnails() {
+    thumbnailContainer.innerHTML = '';
+    imageUrls.forEach((url, index) => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.className = 'thumbnail';
+        img.alt = `Origami ${index + 1}`;
+        img.addEventListener('click', () => selectImage(index));
+        img.addEventListener('error', (e) => {
+            console.warn(`Failed to load image: ${url}`);
+            e.target.style.display = 'none';
+        });
+        thumbnailContainer.appendChild(img);
+    });
+}
+
+// Select image by index
+function selectImage(index) {
+    currentImageIndex = index;
+    updateMainImage();
+    updateCarousel();
+    updateNavButtons();
+    
+    // Center the selected thumbnail in view
+    const thumbnailsPerView = Math.min(visibleThumbnails, totalImages);
+    const centerPosition = Math.floor(thumbnailsPerView / 2);
+    currentStartIndex = Math.max(0, Math.min(
+        totalImages - thumbnailsPerView, 
+        index - centerPosition
+    ));
+    updateCarousel();
+}
+
+// Update main image
+function updateMainImage() {
+    mainImage.src = imageUrls[currentImageIndex];
+    mainImage.alt = `Origami artwork ${currentImageIndex + 1}`;
+    currentIndexSpan.textContent = currentImageIndex + 1;
+    
+    // Add error handling for main image
+    mainImage.addEventListener('error', (e) => {
+        console.warn(`Failed to load main image: ${imageUrls[currentImageIndex]}`);
+        // Try next image if current one fails
+        if (currentImageIndex < totalImages - 1) {
+            selectImage(currentImageIndex + 1);
+        }
+    });
+    
+    // Update active thumbnail
+    const thumbnails = thumbnailContainer.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentImageIndex);
+    });
+}
+
+// Update carousel position
+function updateCarousel() {
+    const thumbnailWidth = 90; // thumbnail width + gap
+    const offset = -currentStartIndex * thumbnailWidth;
+    thumbnailContainer.style.transform = `translateX(${offset}px)`;
+}
+
+// Update navigation buttons
+function updateNavButtons() {
+    prevBtn.disabled = currentImageIndex === 0;
+    nextBtn.disabled = currentImageIndex === totalImages - 1;
+}
+
+// Navigate to previous image
+function previousImage() {
+    if (currentImageIndex > 0) {
+        selectImage(currentImageIndex - 1);
+    }
+}
+
+// Navigate to next image
+function nextImage() {
+    if (currentImageIndex < totalImages - 1) {
+        selectImage(currentImageIndex + 1);
+    }
+}
+
+// Event listeners
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', previousImage);
+    nextBtn.addEventListener('click', nextImage);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') previousImage();
+    if (e.key === 'ArrowRight') nextImage();
+});
+
+// Touch/swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (mainImage) {
+    mainImage.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    mainImage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+}
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            nextImage(); // Swipe left -> next image
+        } else {
+            previousImage(); // Swipe right -> previous image
+        }
+    }
+}
+
+// Initialize the gallery when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initGallery, 100); // Small delay to ensure DOM is ready
+});
+
+
+// Featured projects 
